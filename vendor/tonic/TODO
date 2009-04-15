@@ -1,0 +1,98 @@
+HTTP request
+	Get HTTP method from HTTP request - done
+	Get URL from HTTP request - done
+	Get accept array from HTTP request - done
+	Get language array from HTTP request - done
+	Get request body from HTTP request - done (can't test STDIN)
+	Get request body mimetype from HTTP request - done
+	Get if-match header from HTTP request - done
+	Get if-none-match header from HTTP request - done
+	Get if-modified-since header from HTTP request - done
+	Get if-unmodified-since header from HTTP request - done
+	Get accept encoding header from HTTP request - done
+Get a resource representation - Mock adapter
+	Get a resource default representation - done
+	Get a resource representation by extension - done
+	Get a resource representation by accept header - done
+	Get a resource representation by language header - done
+	Get 404 for non-existant resource - done
+	Get 404 for non-existant representation by extension - done
+	Get 405 for a bad method - done
+	Get a 406 response for requesting an unrecognised representation type - done
+	Get resource as correct sub-class as given by metadata - done
+	Get 304 given correct if-none-match header - done
+	Get 304 given correct star if-none-match header - done
+	Get 200 given incorrect if-none-match header - done
+	Get 304 given correct if-modified header - done
+	Get 200 given incorrect if-modified header - done
+	Get 200 given correct if-match header - done
+	Get 200 given correct star if-match header - done
+	Get 412 given incorrect if-match header - done
+	Get 200 given correct if-unmodified-modified header - done
+	Get 412 given incorrect if-unmodified-modified header - done
+	Get a last modified header in the response - done
+	Get a cache-control header in the response - done
+	Get a 200 on good HTTP Basic credentials - done
+	Get a 401 on bad HTTP Basic credentials - done
+	Get a 200 on good HTTP Digest credentials - done
+	Get a 401 on bad HTTP Digest credentials - done
+	Get a 200 on good cookie hash credentials - done
+	Get a 401 on bad cookie hash credentials - done
+	Get compressed response on correct encoding request header - done
+Put a resource representation - Mock adapter
+	Put a default representation - done
+	Put a specific representation - done
+	Get a 201 response for creating a new resource - done
+	Get a 204 response for overwriting an existing resource - done
+	Get a 412 given a if match star - done
+	Get a 411 response for not sending a representation - done
+Delete a resource - Mock adapter
+	Delete a resource - done
+	Get a 204 response for successfully deleting the resource - done
+Post a resource representation to a resource list - Mock adapter
+	Post a default representation - done
+	Post a specific representation - done
+	Get a 201 response with a location header for creating a new resource - done
+	Get a 411 response for not sending a representation - done
+Find - Mock adapter
+	Find one resource given the exact URL - done
+	Find one resource given the exact URL forcing a specific class type - done
+	Find one resource given the exact URL forcing specific metadata - done
+	Find all resources matching a URL - done
+	Find all resources matching a URL forcing a specific class type - done
+	Find all resources matching a URL forcing specific metadata - done
+File adapter
+	Get a resource - done
+	Get the resource with the root URL - done
+	Get a collection of resources matching a URL - done
+	Get a collection of resources matching a URL given metadata conditions - done
+	Get a collection of matching a URL ordered by metadata - done
+	Get a collection of matching a URL after a given offset - done
+	Get a collection of matching a URL after a given offset and capture the total number of resources that would be found without the offset - done
+	Get a collection of matching a URL before a given offset - done
+	Get a collection of matching a URL before a given offset and capture the total number of resources that would be found without the offset - done
+	Get a collection of matching a URL after a given offset and before a given offset - done
+	Add a resource to the file adapter - done
+	Update a resource to the file adapter - done
+	Delete a resource from the file adapter - done
+	Allow adapter to be mounted at an arbitrary point in the URL-space - done
+SQL adapter
+	Get a resource
+	Get a collection of resources matching a URL
+	Get a collection of resources matching a URL stopping at first slash
+	Get the first resource from a collection matching a URL
+	Get a collection of resources matching a URL given metadata conditions
+	Get a collection of matching a URL ordered by metadata
+	Get a collection of matching a URL after a given offset
+	Get a collection of matching a URL after a given offset and capture the total number of resources that would be found without the offset
+	Get a collection of matching a URL before a given offset
+	Get a collection of matching a URL before a given offset and capture the total number of resources that would be found without the offset
+	Get a collection of matching a URL after a given offset and before a given offset
+	Get a collection of matching a URL given some SQL
+	Add a resource to the sql adapter
+	Update a resource to the sql adapter
+	Delete a resource from the sql adapter
+	Allow adapter to be mounted at an arbitrary point in the URL-space
+Smarty resource - done
+Generator script - done
+Server script - done

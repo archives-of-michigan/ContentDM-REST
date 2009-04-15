@@ -4,10 +4,10 @@
 include Tonic files, we'll presume that they are in the PHP include path
 because that makes things a little easier 
 */
-require_once join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'vendor','tonic','lib','request.php'));
-require_once join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'vendor','tonic','lib','resource.php'));
-require_once join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'vendor','tonic','lib','response.php'));
-require_once join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'vendor','tonic','adapters','fileadapter.php'));
+require_once '[TONIC]'.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'request.php';
+require_once '[TONIC]'.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'resource.php';
+require_once '[TONIC]'.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'response.php';
+require_once '[TONIC]'.DIRECTORY_SEPARATOR.'adapters'.DIRECTORY_SEPARATOR.'fileadapter.php';
 
 /*
 we'll create a map of path extensions to mimetypes so that Tonic can
