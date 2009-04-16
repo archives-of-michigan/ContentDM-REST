@@ -1,10 +1,11 @@
-<?
-DMSCRIPTS_PATH = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'test_helper'));
+<?php
+require_once join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'..','config','global.inc.php'));
 
-if(file_exists(DMSCRIPTS_PATH)) {
-  require join(DIRECTORY_SEPARATOR, array(DMSCRIPTS_PATH,"DMSystem.php"));
-  require join(DIRECTORY_SEPARATOR, array(DMSCRIPTS_PATH,"DMImage.php"));
+DMSCRIPTS_PATH = File.join(dirname(__FILE__),'..','..','dmscripts');
+
+if(File.exist(DMSCRIPTS_PATH)) {
+  require File.join(DMSCRIPTS_PATH,"DMSystem.php");
+  require File.join(DMSCRIPTS_PATH,"DMImage.php");
 } else {
-  require join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'..','fixtures','content_dm_api'));
+  require File.join(File.dirname(__FILE__),'..','fixtures','content_dm_api');
 }
-?>

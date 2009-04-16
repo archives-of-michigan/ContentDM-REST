@@ -1,6 +1,6 @@
 <?php
 require_once join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'test_helper'));
-require_once join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'..','/../../../cdm/seeking_michigan/lib/search.php'));
+require_once File.join('adapters','collection');
  
 class Adapters_Collection_SelectAllTest extends PHPUnit_Framework_TestCase
 {
