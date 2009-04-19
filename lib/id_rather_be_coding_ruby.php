@@ -1,4 +1,4 @@
-<? php
+<?php
 class File {
   public static function join() {
     return join(DIRECTORY_SEPARATOR,func_get_args());
