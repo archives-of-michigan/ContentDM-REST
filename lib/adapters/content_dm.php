@@ -1,11 +1,11 @@
 <?php
 
-define(DMSCRIPTS_PATH, File.join(dirname(__FILE__),'..','..','dmscripts'));
+define(DMSCRIPTS_PATH, file_join(dirname(__FILE__),'..','..','dmscripts'));
 
-if(File.exist(DMSCRIPTS_PATH)) {
-  require File.join(DMSCRIPTS_PATH,"DMSystem.php");
-  require File.join(DMSCRIPTS_PATH,"DMImage.php");
+if(file_exists(DMSCRIPTS_PATH)) {
+  require file_join(DMSCRIPTS_PATH,"DMSystem.php");
+  require file_join(DMSCRIPTS_PATH,"DMImage.php");
 } else {
   echo "USING TEST FIXTURES FOR CONTENTDM";
-  require File.join(File.dirname(__FILE__),'..','..','test','fixtures','content_dm_api');
+  require file_join(dirname(__FILE__),'..','..','test','fixtures','content_dm_api');
 }

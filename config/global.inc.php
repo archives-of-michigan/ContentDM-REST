@@ -5,13 +5,13 @@ require_once join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'..','lib','id_ra
 set_include_path(
   get_include_path().join(PATH_SEPARATOR,
     array(
-      File.join(File.dirname(__FILE__),'..','vendor','konstrukt','lib'),
-      File.join(File.dirname(__FILE__),'..','lib')
+      file_join(dirname(__FILE__),'..','vendor','konstrukt','lib'),
+      file_join(dirname(__FILE__),'..','lib')
     )
   )
 );
 
-require_once File.join('konstrukt','konstrukt.inc.php');
+require_once file_join('konstrukt','konstrukt.inc.php');
 
 date_default_timezone_set('US/Eastern');
 set_error_handler('k_exceptions_error_handler');
