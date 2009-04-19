@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL | E_STRICT);
-require_once join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'..','lib','id_rather_be_coding_ruby'));
+require_once join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'..','lib','id_rather_be_coding_ruby.php'));
 
 set_include_path(
   get_include_path().join(PATH_SEPARATOR,
