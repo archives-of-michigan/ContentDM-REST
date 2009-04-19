@@ -1,4 +1,5 @@
 <?php
 function file_join() {
-  return join(DIRECTORY_SEPARATOR,func_get_args());
+  $args = func_get_args();
+  return join(DIRECTORY_SEPARATOR,$args);
 }
