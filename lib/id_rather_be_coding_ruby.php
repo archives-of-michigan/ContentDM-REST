@@ -1,4 +1,4 @@
-<?
+<? php
 class File {
   public static function join() {
     return join(DIRECTORY_SEPARATOR,func_get_args());
@@ -12,4 +12,3 @@ class File {
     return file_exists($path);
   }
 }
-?>
