@@ -73,4 +73,16 @@ function dmQuery() {
   return array();
 }
 
+function dmGetCollectionFieldInfo($alias) {
+  return array(
+    array(
+      'nick' => 'title',
+      'name' => 'Title',
+      'size' => '50',
+      'search' => '1',
+      'hide' => '0'
+    )
+  );
+}
+
 ?>

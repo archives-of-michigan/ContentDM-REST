@@ -1,4 +1,7 @@
 <?php
+require_once 'content_dm.php';
+require_once 'models/collection.php';
+
 class CollectionsGateway {
   
   function all() {
