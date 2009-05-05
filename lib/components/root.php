@@ -1,7 +1,7 @@
 <?php
 class components_Root extends k_Component {
   function map($name) {
-    if ($name == 'collections') {
+    if ($name == 'collections.php') {
       return 'components_collections_List';
     }
   }
