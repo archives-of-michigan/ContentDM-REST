@@ -1,9 +1,18 @@
+Route Structure
+===============
 cdmhost.com
-  /
+  GEt /
     * href to collections
-  /collections
-    /p123432
-      /items
-        /CISOPTR
-          /items
-            /ITNUM
+  GET /collections.php
+  GET /collections/collection.php?alias=/p123432
+  GET /collections/items.php?alias=/p123432
+  GET /collections/items.php?alias=/p123432&search=foo
+  GET /collections/item.php?alias=/p123142&ptr=9878
+  GET /collections/item.php?alias=/p123142&ptr=9878&itnum=46464
+
+Design Notes
+============
+
+This web application was designed for hosted ContentDM systems running Windows NT/IIS. Since 
+IIS has not until very recently (IIS 8) supported URL rewrites, (an idea implemented in Apache 
+since 1996) I was forced to create a directory structure that mimics the resource paths.  
