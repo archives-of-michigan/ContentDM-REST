@@ -1,7 +1,13 @@
 <?php
 class components_Root extends k_Component {
+  function map($name) {
+    if ($name == 'collections') {
+      return 'components_collections_List';
+    }
+  }
+  
   function dispatch() {
-    $t = new k_Template(File.join('templates','document.tpl.php');
+    $t = new k_Template(file_join(dirname(__FILE__),'..','..','templates','document.tpl.php'));
     return
       $t->render(
         $this,
@@ -13,7 +19,7 @@ class components_Root extends k_Component {
           'onload' => $this->document->onload()));
   }
   function GET() {
-    $t = new k_Template(File.join("templates/root.tpl.php"));
+    $t = new k_Template(file_join(dirname(__FILE__),'..','..','templates','root.tpl.php'));
     return $t->render($this);
   }
 }
