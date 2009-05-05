@@ -90,6 +90,10 @@ Then /^I should see "(.*)"$/ do |text|
   response.body.should =~ /#{text}/m
 end
 
+Then /^I should see a link to "(.*)"$/ do |href|
+  response.body.should =~ /<a.*href.*#{href.gsub('/','\/')}>/
+end
+
 Then /^I should not see "(.*)"$/ do |text|
   response.body.should_not =~ /#{text}/m
 end

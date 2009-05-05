@@ -6,5 +6,5 @@ Webrat.configure do |config|
 end
 
 # Comment out the next two lines if you're not using RSpec's matchers (should / should_not) in your steps.
-require 'cucumber/rails/rspec'
-require 'webrat/rspec-rails'
+# require 'cucumber/rails/rspec'
+# require 'webrat/rspec-rails'
