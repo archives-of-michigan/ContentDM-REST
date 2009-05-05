@@ -18,3 +18,5 @@ require_once file_join('konstrukt','konstrukt.inc.php');
 date_default_timezone_set('US/Eastern');
 set_error_handler('k_exceptions_error_handler');
 spl_autoload_register('k_autoload');
+
+$collections = new CollectionsGateway();
