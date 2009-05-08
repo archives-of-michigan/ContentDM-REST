@@ -679,6 +679,7 @@ abstract class k_Component implements k_Context {
     'application/calendar+xml;xcal' => 'renderXCal',
     'application/rdf+xml;rdf' => 'renderRdf',
     'application/json;json' => 'renderJson',
+    'text/json;json' => 'renderJson',
     'application/pdf;pdf' => 'renderPdf',
     'image/svg+xml;svg' => 'renderSvg',
   );
