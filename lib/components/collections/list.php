@@ -1,5 +1,6 @@
 <?php
-require_once file_join(dirname(__FILE__),'..','..','json.php');
+require_once file_join('json.php');
+require_once file_join('models','collection.php');
 
 class components_collections_List extends k_Component {
   function renderHtml() {
@@ -9,11 +10,10 @@ class components_collections_List extends k_Component {
     return $t->render(
       $this,
       array(
-        'collections' => $collections->all()));
+        'collections' => Collection::all()));
   }
   function renderJson() {
-    global $collections;
     $json = new Services_JSON();
-    return $json->encode($collections->all());
+    return $json->encode(Collection::all());
   }
 }
