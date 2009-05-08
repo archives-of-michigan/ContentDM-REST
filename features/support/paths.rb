@@ -1,5 +1,5 @@
 def path_to(page_name)
-  case page_name
+  path = case page_name
   
   when /the homepage/i
     root_path
@@ -9,4 +9,6 @@ def path_to(page_name)
   else
     page_name
   end
+  
+  "http://localhost/cdm_rest#{path}"
 end

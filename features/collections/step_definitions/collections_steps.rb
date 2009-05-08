@@ -1,7 +1,7 @@
 require 'json'
 
 Then /^I should get a list of collections in JSON format$/ do
-  @collections = JSON.parse(response.body)
+  @collections = JSON.parse(webrat.response.body)
   @collections.should be_a_kind_of(Hash)
 end
 
