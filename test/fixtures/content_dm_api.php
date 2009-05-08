@@ -74,15 +74,26 @@ function dmQuery() {
 }
 
 function dmGetCollectionFieldInfo($alias) {
-  return array(
+  return(
     array(
-      'nick' => 'title',
-      'name' => 'Title',
-      'size' => '50',
-      'search' => '1',
-      'hide' => '0'
+      array(
+        'nick' => 'title',
+        'name' => 'Title',
+        'size' => '50',
+        'search' => '1',
+        'hide' => '0'
+      )
     )
   );
+}
+
+function dmGetCollectionImageSettings($alias, &$pan_enabled, &$minjpegdim, &$zoom_levels, &$maxderivedimg, &$viewer, &$docviewer) {
+  $pan_enabled = 1;
+  $minjpegdim = 1024;
+  $zoom_levels = array();
+  $maxderivedimg = array();
+  $viewer = array();
+  $docviewer = array();
 }
 
 ?>
