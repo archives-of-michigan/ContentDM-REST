@@ -1,6 +1,7 @@
 <?php
 require_once 'content_dm.php';
 require_once file_join('models','collection','field.php');
+require_once file_join('models','collection','image_setting.php');
 
 class Collection {
   public $alias;
@@ -16,30 +17,7 @@ class Collection {
     $this->path = $item['path'];
     
     $this->fields = CollectionField::find_all_by_alias($this->alias);
-    $this->initialize_image_settings();
-  }
-  
-  private function initialize_image_settings() {
-    $pan_enabled = null;
-    $minjpegdim = null;
-    $zoom_levels = null;
-    $maxderivedimg = null;
-    $viewer = null;
-    $docviewer = null;
-    
-    dmGetCollectionImageSettings($this->alias, $pan_enabled, $minjpegdim, $zoom_levels, $maxderivedimg, $viewer, $docviewer);
-    
-    $zoom_settings = $this->calculate_zoom_levels($zoom_levels, $viewer);
-    
-    $this->image_settings = array(
-      'zoom' => $zoom_settings,
-      'pan_enabled' => $pan_enabled,
-      'min_dimensions_for_pan' => $minjpegdim
-    );
-  }
-  
-  private function calculate_zoom_levels($zoom_levels, $viewer_sizes) {
-    
+    $this->image_settings = CollectionImageSetting::find_by_alias($this->alias);
   }
   
   public static function all() {
