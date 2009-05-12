@@ -7,16 +7,7 @@ class components_Root extends k_Component {
   }
   
   function dispatch() {
-    $t = new k_Template(file_join(dirname(__FILE__),'..','..','templates','document.tpl.php'));
-    return
-      $t->render(
-        $this,
-        array(
-          'content' => parent::dispatch(),
-          'title' => $this->document->title(),
-          'scripts' => $this->document->scripts(),
-          'styles' => $this->document->styles(),
-          'onload' => $this->document->onload()));
+    return parent::dispatch();
   }
   function GET() {
     $t = new k_Template(file_join(dirname(__FILE__),'..','..','templates','root.tpl.php'));
