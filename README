@@ -4,15 +4,18 @@ cdmhost.com
   GEt /
     * href to collections
   GET /collections.php
-  GET /collections/collection.php?alias=/p123432
+    * href ul of collections
+    * json array of collections
+  GET /collections.php?alias=/p123432
+    * collection json object
   GET /collections/items.php?alias=/p123432
   GET /collections/items.php?alias=/p123432&search=foo
-  GET /collections/item.php?alias=/p123142&ptr=9878
-  GET /collections/item.php?alias=/p123142&ptr=9878&itnum=46464
+  GET /collections/items.php?alias=/p123142&ptr=9878
+  GET /collections/items/compound_object/item.php?alias=/p123142&ptr=9878&itnum=46464
 
 Design Notes
 ============
 
-This web application was designed for hosted ContentDM systems running Windows NT/IIS. Since 
-IIS has not until very recently (IIS 8) supported URL rewrites, (an idea implemented in Apache 
-since 1996) I was forced to create a directory structure that mimics the resource paths.  
+This web application was designed for hosted ContentDM systems running Windows NT/IIS 6.0. Since 
+IIS 6 does not support URL rewrites, (an idea implemented in Apache since 1996) I was forced to 
+create a directory structure that mimics the resource paths. As such, friendly URLs are not possible.
