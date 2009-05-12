@@ -23,7 +23,7 @@ class CollectionFieldFindAllByAliasTest extends PHPUnit_Framework_TestCase {
   
   public function testShouldReturnArrayOfCollectionFields() {
     foreach(CollectionField::find_all_by_alias('foo') as $field) {
-      $this->assertType(CollectionField, $field);
+      $this->assertType('CollectionField', $field);
     }
   }
 }
