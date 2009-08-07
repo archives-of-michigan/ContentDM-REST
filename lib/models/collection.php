@@ -1,7 +1,7 @@
 <?php
 require_once 'content_dm.php';
-require_once file_join('models','collection','field.php');
-require_once file_join('models','collection','image_setting.php');
+require_once 'models/collection/field.php';
+require_once 'models/collection/image_setting.php';
 
 class Collection {
   public $alias;
