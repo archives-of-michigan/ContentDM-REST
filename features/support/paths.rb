@@ -10,5 +10,5 @@ def path_to(page_name)
     page_name
   end
   
-  "http://localhost/cdm_rest#{path}"
+  "http://localhost/rest#{path}"
 end

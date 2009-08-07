@@ -4,10 +4,6 @@ Feature: Listing Collections
   I want to see a list of collections in various formats
   
   Scenario: Success
-    When I request /collections.php in JSON format
+    When I request /index.php?q=/collections in JSON format
     Then it should be successful
-
-  Scenario: JSON format
-    When I request /collections.php in JSON format
-    Then I should get a list of collections in JSON format
-    And I should see the full list of collections
+    And I should get the full list of collections in JSON format

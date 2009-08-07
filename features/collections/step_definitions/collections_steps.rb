@@ -1,11 +1,9 @@
 require 'json'
 
-Then /^I should get a list of collections in JSON format$/ do
+Then /^I should get the full list of collections in JSON format$/ do
   @collections = JSON.parse(webrat.response.body)
   @collections.should be_a_kind_of(Array)
-end
-
-Then /^I should see the full list of collections$/ do
+  
   @collections.should be_a_kind_of(Array)
   @collections[0].should include(
     "alias" => "/p4006coll2",
