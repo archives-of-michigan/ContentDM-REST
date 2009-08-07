@@ -1,7 +1,7 @@
 <?php
 class components_Root extends k_Component {
   function map($name) {
-    if ($name == 'collections.php') {
+    if ($name == 'collections') {
       return 'components_collections_List';
     }
   }
@@ -10,7 +10,7 @@ class components_Root extends k_Component {
     return parent::dispatch();
   }
   function GET() {
-    $t = new k_Template(file_join(dirname(__FILE__),'..','..','templates','root.tpl.php'));
+    $t = new k_Template(dirname(__FILE__).'/../../templates/root.tpl.php');
     return $t->render($this);
   }
 }
