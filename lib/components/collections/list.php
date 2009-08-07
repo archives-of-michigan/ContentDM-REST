@@ -11,6 +11,9 @@ class components_collections_List extends k_Component {
         'collections' => Collection::all()));
   }
   function renderJson() {
-    return json_encode(Collection::all());
+    $response = new k_HttpResponse(200);
+    $response->setContentType('application/json');
+    $response->setContent(json_encode(Collection::all()));
+    throw $response;
   }
 }
