@@ -1,8 +1,8 @@
 <?php
-require_once join(DIRECTORY_SEPARATOR, array(dirname(__FILE__),'..','..','..','..','test_helper.php'));
-require_once file_join('models','collection','field.php');
+require_once dirname(__FILE__).'/../../../../test_helper.php';
+require_once 'models/collection/field.php';
  
-class CollectionFieldFindAllByAliasTest extends PHPUnit_Framework_TestCase {
+class CollectionFieldFindAllByAliasTest extends UnitTestCase {
   
   public function testShouldGetAllFields() {
     $fields = array(
@@ -18,12 +18,12 @@ class CollectionFieldFindAllByAliasTest extends PHPUnit_Framework_TestCase {
     
     $collection_fields = CollectionField::find_all_by_alias('foo');
     
-    $this->assertEquals(1, count($collection_fields));
+    $this->assertEqual(1, count($collection_fields));
   }
   
   public function testShouldReturnArrayOfCollectionFields() {
     foreach(CollectionField::find_all_by_alias('foo') as $field) {
-      $this->assertType('CollectionField', $field);
+      $this->assertIsA($field, 'CollectionField');
     }
   }
 }
