@@ -24,7 +24,8 @@ class CollectionImageSetting {
       $default_zoom_levels, $maxderivedimg, $viewer, $docviewer);
     
     $zoom_levels = CollectionImageSetting::calculate_zoom_levels($default_zoom_levels, $docviewer);
-    return new CollectionImageSetting($pan_enabled, $min_dimensions_for_pan, $zoom_levels);
+    $setting = new CollectionImageSetting($pan_enabled, $min_dimensions_for_pan, $zoom_levels);
+    return $setting;
   }
   
   public static function calculate_zoom_levels($zoom_levels, $viewer_sizes) {

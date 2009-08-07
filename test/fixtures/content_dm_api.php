@@ -69,6 +69,24 @@ function dmGetCollectionList() {
   );
 }
 
+function dmGetCollectionParameters($alias, &$name, &$path)  {
+  $all = dmGetCollectionList();
+  
+  $found = FALSE;
+  foreach ($all as $collection) {
+    if($collection['alias'] == $alias) {
+      $found = $collection;
+    }
+  }
+  
+  if($found) {
+    $name = $found['name'];
+    $path = $found['path'];
+  } else {
+    return -2;
+  }
+}
+
 function dmQuery() {
   return array();
 }

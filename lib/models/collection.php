@@ -29,4 +29,20 @@ class Collection {
     }
     return $results;
   }
+  
+  public static function find($alias) {
+    $alias = (preg_match('/^\//',$alias)) ? $alias : '/'.$alias;
+    
+    $found = dmGetCollectionParameters($alias, $name, $path);
+    if($found == 0) {
+      $collection = new Collection(array(
+        'alias' => $alias,
+        'name' => $name,
+        'path' => $path
+      ));
+      return $collection;
+    } else {
+      return null;
+    }
+  }
 }

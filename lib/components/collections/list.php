@@ -1,7 +1,11 @@
 <?php
-require_once file_join('models','collection.php');
+require_once 'models/collection.php';
 
 class components_collections_List extends k_Component {
+  function map($name) {
+    return 'components_collections_Entity';
+  }
+  
   function renderHtml() {
     $this->document->setTitle("Collections");
     $t = new k_Template("templates/collections/list.tpl.php");
