@@ -1,17 +1,19 @@
 Route Structure
 ===============
 cdmhost.com
-  GEt /
+  GET /
     * href to collections
-  GET /collections.php
+  GET /?q=/collections
     * href ul of collections
     * json array of collections
-  GET /collections.php?alias=/p123432
+  GET /?q=/collections/p123432
     * collection json object
-  GET /collections/items.php?alias=/p123432
-  GET /collections/items.php?alias=/p123432&search=foo
-  GET /collections/items.php?alias=/p123142&ptr=9878
-  GET /collections/items/compound_object/item.php?alias=/p123142&ptr=9878&itnum=46464
+  GET /?q=/collections/items.php?alias=/p123432&search=foo
+    * search for items
+  GET /?q=/collections/p123432/items/9878
+    * collection item json object
+  GET /?q=/collections/p123432/items/9878/subitem/46464
+    * collection item json object - compound object item
 
 Design Notes
 ============
