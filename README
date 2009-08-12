@@ -1,3 +1,9 @@
+Overview
+========
+
+This is a RESTful interface for ContentDM, intended for deployment on hosted ContentDM systems.  This 
+api only provides access to collections for now, but will eventually include items and search results.
+
 Route Structure
 ===============
 cdmhost.com
@@ -8,7 +14,10 @@ cdmhost.com
     * json array of collections
   GET /?q=/collections/p123432
     * collection json object
-  GET /?q=/collections/items.php?alias=/p123432&search=foo
+    
+Coming soon (routes subject to change):
+
+  GET /?q=/collections/p123432&search=foo
     * search for items
   GET /?q=/collections/p123432/items/9878
     * collection item json object
@@ -19,5 +28,8 @@ Design Notes
 ============
 
 This web application was designed for hosted ContentDM systems running Windows NT/IIS 6.0. Since 
-IIS 6 does not support URL rewrites, (an idea implemented in Apache since 1996) I was forced to 
-create a directory structure that mimics the resource paths. As such, friendly URLs are not possible.
+IIS 6 does not support URL rewrites, (an idea implemented in Apache since 1996) I updated Konstrukt 
+(the underlying framework providing REST) to allow resources to be accessed using the front controller 
+pattern used by Wordpress, Drupal, et al.  For instance, since /collections/p1234 is not allowed by 
+IIS by default, you can instead request /index.php?q=/collections/p1234. Any proxying webserver can 
+rewrite friendly urls into this front-controller format.
