@@ -5,11 +5,11 @@ require_once 'konstrukt/virtualbrowser.inc.php';
 
 class components_collections_List_test extends WebTestCase {
   function createBrowser() {
-    return new k_VirtualSimpleBrowser('components_collections_List');
+    return new k_VirtualSimpleBrowser('components_Root');
   }
   
   function test_list() {
-    $this->assertTrue($this->get('/?q=/collections'));
+    $this->assertTrue($this->get('/collections'));
     $this->assertResponse(200);
     $this->assertMime('text/html; charset=utf-8');
     $this->assertText("Collections");
@@ -17,7 +17,7 @@ class components_collections_List_test extends WebTestCase {
   
   function test_json_representation() {
     $this->addHeader('Accept: application/json,*/*;q=0.8');
-    $this->assertTrue($this->get('/?q=/collections'));
+    $this->assertTrue($this->get('/collections'));
     $this->assertResponse(200);
     $this->assertMime('application/json; charset=utf-8');
     
