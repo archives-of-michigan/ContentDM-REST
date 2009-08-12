@@ -354,7 +354,10 @@ class k_HttpRequest implements k_Context {
     * @param k_adapter_MockCookieAccess
     * @param k_adapter_MockSessionAccess
     */
-  function __construct($href_base = null, $request_uri = null, k_IdentityLoader $identity_loader = null, k_adapter_GlobalsAccess $superglobals = null, k_adapter_CookieAccess $cookie_access = null, k_adapter_SessionAccess $session_access = null, k_adapter_UploadedFileAccess $file_access = null) {
+  function __construct($href_base = null, $request_uri = null, k_IdentityLoader $identity_loader = null, 
+      k_adapter_GlobalsAccess $superglobals = null, k_adapter_CookieAccess $cookie_access = null, 
+      k_adapter_SessionAccess $session_access = null, k_adapter_UploadedFileAccess $file_access = null,
+      $use_front_controller = false) {
     if (preg_match('~/$~', $href_base)) {
       throw new Exception("href_base may _not_ have trailing slash");
     }
@@ -379,12 +382,22 @@ class k_HttpRequest implements k_Context {
     $this->session_access = $session_access ? $session_access : new k_adapter_DefaultSessionAccess($this->cookie_access);
     $this->identity_loader = $identity_loader ? $identity_loader : new k_DefaultIdentityLoader();
     $this->href_base = $href_base === null ? preg_replace('~(.*)/.*~', '$1', $this->server['SCRIPT_NAME']) : $href_base;
-    $this->subspace =
-      preg_replace(  // remove root
+    
+    $uri = null;
+    if($use_front_controller) {
+      $uri = $this->query['q'] ? $this->query['q'] : '/';
+    } else {
+      if($request_uri) {
+        $uri = $request_uri;
+      } else if(array_key_exists('REQUEST_URI',$this->server)) {
+        $uri = $this->server['REQUEST_URI'];
+      }
+    }
+    $this->subspace = 
+    preg_replace(  // remove root
         '~^' . preg_quote($this->href_base, '~') . '~', '',
         preg_replace( // remove trailing query-string
-          '~([?]{1}.*)$~', '',
-          $request_uri === null ? $this->server['REQUEST_URI'] : $request_uri));
+          '~([?]{1}.*)$~', '', $uri));
     $this->content_type_negotiator = new k_ContentTypeNegotiator($this->header('accept'));
   }
   /**
@@ -1470,6 +1483,8 @@ class k_Bootstrap {
   protected $charset_strategy;
   /** @var boolean */
   protected $is_debug = false;
+  /** @var boolean */
+  protected $is_front_controller = false;
   /** @var string */
   protected $log_filename = null;
   /** @var string */
@@ -1625,6 +1640,14 @@ class k_Bootstrap {
       $this->globals_access = new k_adapter_SafeGlobalsAccess($this->charsetStrategy());
     }
     return $this->globals_access;
+  }
+  
+  /** 
+    * @return k_Bootstrap
+    */
+  protected function enableFrontController() {
+    $this->is_front_controller = true;
+    return $this;
   }
 }
 

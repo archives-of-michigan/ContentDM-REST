@@ -1,6 +1,12 @@
 <?php
 error_reporting(E_ALL | E_STRICT);
 
+set_include_path(
+  get_include_path().PATH_SEPARATOR.
+  join(PATH_SEPARATOR, array(dirname(__FILE__).'/../../../test')).PATH_SEPARATOR.
+  join(PATH_SEPARATOR, array(dirname(__FILE__).'/../lib'))
+);
+
 // You need to have simpletest in your include_path
 require_once 'simpletest/unit_tester.php';
 if (realpath($_SERVER['PHP_SELF']) == __FILE__) {
@@ -212,6 +218,32 @@ Executing
     $this->assertEqual($result, $expected);
   }
 
+  function test_using_front_controller() {
+    $expected = "Dispatching:
+  name: ''
+  next: 'foo'
+  subtype: ''
+  url: '/web2.0/'
+Dispatching:
+  name: 'foo'
+  next: 'bar'
+  subtype: 'ninja'
+  url: '/web2.0/foo;ninja'
+Dispatching:
+  name: 'bar'
+  next: ''
+  subtype: ''
+  url: '/web2.0/foo;ninja/bar'
+Executing
+";
+    $glob = new k_adapter_MockGlobalsAccess(array('q' => '/foo;ninja/bar'), array(), 
+      array('SERVER_NAME' => 'localhost', 'SCRIPT_NAME' => '/index.php'));
+    $http = new k_HttpRequest('/web2.0', '/index.php', new k_DefaultIdentityLoader(), $glob, null, null, null, true);
+    $components = new k_DefaultComponentCreator();
+    $root = $components->create('test_CircularComponent', $http);
+    $result = $root->dispatch();
+    $this->assertEqual($result, $expected);
+  }
 }
 
 class TestOfUrlGeneration extends UnitTestCase {
